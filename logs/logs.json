@@ -1,0 +1,24 @@
+[
+  {
+    "component": "UserCard",
+    "phase": "mount",
+    "actualDuration": 0.4,
+    "baseDuration": 0.3,
+    "renderTime": 19.3,
+    "stateUpdates": 1,
+    "propsReceived": 6,
+    "propsUsed": 3,
+    "optimizationApplied": "unknown"
+  },
+  {
+    "component": "ExpensiveChart",
+    "phase": "mount",
+    "actualDuration": 17.6,
+    "baseDuration": 14.2,
+    "renderTime": 18.9,
+    "stateUpdates": 1,
+    "propsReceived": 6,
+    "propsUsed": 3,
+    "optimizationApplied": "unknown"
+  }
+]

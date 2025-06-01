@@ -1,0 +1,20 @@
+[
+  {
+    "component": "UserCard",
+    "actualDuration": 12.3,
+    "renderTime": 15.8,
+    "stateUpdates": 3,
+    "propsReceived": 6,
+    "propsUsed": 3,
+    "optimizationApplied": "React.memo"
+  },
+  {
+    "component": "Chart",
+    "actualDuration": 22.1,
+    "renderTime": 24.3,
+    "stateUpdates": 5,
+    "propsReceived": 4,
+    "propsUsed": 4,
+    "optimizationApplied": "useMemo"
+  }
+]

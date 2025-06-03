@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 /**
@@ -12,19 +13,23 @@ import React from "react";
  * - stockCount
  * - discount
  */
-const ProductTile = ({
-  productName,
-  price,
-  category,
-  stockCount,
-  discount,
-}) => {
+const ProductTile = ({ products }) => {
   return (
     <div className="border p-4 rounded shadow-sm mb-4">
-      <h3 className="text-lg font-semibold">{productName}</h3>
-      <p>Price: ₹{price}</p>
+      <h3 className="text-lg font-semibold">{products.productName}</h3>
+      <p>Price: ₹{products.price}</p>
     </div>
   );
+};
+
+ProductTile.propTypes = {
+  products: PropTypes.shape({
+    productName: PropTypes.string,
+    price: PropTypes.number,
+    category: PropTypes.string,
+    stockCount: PropTypes.number,
+    discount: PropTypes.number,
+  }).isRequired,
 };
 
 export default ProductTile;

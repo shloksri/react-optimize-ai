@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 /**
@@ -12,15 +13,25 @@ import React from "react";
  * - timestamp
  * - userAvatar
  */
-const CommentBox = ({ username, comment, likes, timestamp, userAvatar }) => {
+const CommentBox = ({ comments }) => {
   return (
     <div className="border p-4 rounded shadow-sm mb-4">
       <p>
-        <strong>{username}</strong> says:
+        <strong>{comments.username}</strong> says:
       </p>
-      <p>{comment}</p>
+      <p>{comments.comment}</p>
     </div>
   );
+};
+
+CommentBox.propTypes = {
+  comments: PropTypes.shape({
+    username: PropTypes.string,
+    comment: PropTypes.string,
+    likes: PropTypes.number,
+    timestamp: PropTypes.string,
+    userAvatar: PropTypes.string,
+  }).isRequired,
 };
 
 export default CommentBox;

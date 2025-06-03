@@ -5,6 +5,11 @@ Got the following output-
 🔍 UserCard: 💡 Suggested Optimization → React.memo
 🔍 Chart: 💡 Suggested Optimization → React.memo
 
+Ran this 
+node parsePropsCLI.js src/components/UserList.jsx src/components/UserCard.jsx
+node parsePropsCLI.js src/components/UserCard.jsx
+
+
 Explanation
 
 react-optimize-ai/
@@ -164,3 +169,29 @@ Used 7 / Passed 8	8	7	Low	❌ No
 Used 4 / Passed 5	5	4	Low	❌ No
 Used 4 / Passed 8 (but already memoized)	8	4	Low (thanks to memo)	❌ No
 Used 4 / Passed 8 + Changing unused prop	8	4	High	✅ Yes
+
+
+
+🔍 How This Works Under the Hood:
+The parent (UserList) re-renders due to polling (setInterval)
+
+React maps over users again — but since UserCard is memoized:
+
+It checks: “Did the user object change for this row?”
+
+If not → it reuses the previous result, and skips re-rendering
+
+Rows 3 and 7 get new user objects → they re-render
+
+=============================================
+
+✅ Suggested Core Answer (in your voice):
+“That's a great question. Yes, React.memo is a known optimization technique. But in the real world, we work in large teams, on legacy codebases, and with growing feature sets. We don’t always have the luxury of auditing every component manually.
+
+What if your app has thousands of components, and each of them receives large props? Or you join a new project and have no idea which components re-render unnecessarily? Are you going to inspect all of them one-by-one?
+
+That’s where AI comes in — not to replace your React knowledge, but to scale your judgment.”
+
+=============================================
+
+

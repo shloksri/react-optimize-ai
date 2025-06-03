@@ -1,5 +1,5 @@
-// src/components/UserCard.jsx
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo } from "react";
+import PropTypes from "prop-types";
 
 const UserCard = ({ user }) => {
   const renderCount = useRef(0);
@@ -26,4 +26,18 @@ const UserCard = ({ user }) => {
   );
 };
 
-export default UserCard;
+UserCard.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    phone: PropTypes.string,
+    email: PropTypes.string,
+    role: PropTypes.string,
+    department: PropTypes.string,
+    permissions: PropTypes.string,
+    lastLogin: PropTypes.string,
+    isOnline: PropTypes.bool,
+  }).isRequired,
+};
+
+export default memo(UserCard);

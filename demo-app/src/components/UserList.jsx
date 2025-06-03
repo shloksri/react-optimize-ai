@@ -8,24 +8,17 @@ const UserList = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setUsers((prevUsers) => {
-        const updatedUsers = [...prevUsers];
-        const indicesToUpdate = new Set();
-
-        // Randomly pick 2 unique indices
-        while (indicesToUpdate.size < 2) {
-          indicesToUpdate.add(Math.floor(Math.random() * prevUsers.length));
-        }
-
-        for (let index of indicesToUpdate) {
-          updatedUsers[index] = {
-            ...updatedUsers[index],
-            isOnline: Math.random() > 0.5,
-          };
-        }
-
-        return updatedUsers;
-      });
+      setUsers((prevUsers) =>
+        prevUsers.map((user) => {
+          if (user.id === 3 || user.id === 7) {
+            return {
+              ...user,
+              isOnline: !user.isOnline, // Toggle status
+            };
+          }
+          return user; // Leave other users untouched
+        })
+      );
     }, 2000);
 
     return () => clearInterval(interval);
